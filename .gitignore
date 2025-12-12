@@ -1,0 +1,15 @@
+build/
+devel/
+install/
+log/
+logs/
+*.bag
+*.pcd
+*.bin
+*.ply
+*.mp4
+*.mkv
+*.zip
+*.tar
+*.tar.gz
+.DS_Store
