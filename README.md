@@ -2,9 +2,7 @@
 
 <div align="center">
 
-# FAST-LIVOSAM
-
-### A Robust Global LiDAR-Visual-Inertial SLAM Framework with Dynamic Object Removal and TensorRT-based 3D Object Detection
+### A Robust Global LiDAR-Visual-Inertial SLAM Framework with Dynamic Object Removal and CenterPoint-based 3D Object Detection
 
 </div>
 
@@ -98,7 +96,6 @@ sudo apt install ros-noetic-eigen-conversions
 * CUDA
 * TensorRT
 * spconv
-```
 
 ---
 
