@@ -1,2 +1,246 @@
 # FAST-LIVOSAM
-This project is developed for the paper “Robust Urban SLAM via Resilient GNSS–IMU–LiDAR–Camera–Loop Fusion”. It is adapted and extended from FAST-LIVO2, aiming to realize a tightly coupled GNSS–LiDAR–IMU–Camera multi-sensor factor-graph-based SLAM framework for robust localization and mapping in complex urban environments.
+
+<div align="center">
+
+**FAST-LIVOSAM: A Robust Global LiDAR-Visual-Inertial SLAM Framework
+with Dynamic Object Removal and TensorRT-based 3D Object Detection**
+
+</div>
+
+---
+
+## Overview
+
+FAST-LIVOSAM is a robust global LiDAR-Visual-Inertial SLAM framework built upon FAST-LIVO2 with:
+
+* Global pose graph optimization
+* Dynamic object removal
+* TensorRT-accelerated CenterPoint 3D object detection
+* Multi-sensor fusion
+* High-performance real-time mapping
+
+The framework supports:
+
+* LiDAR-Inertial-Visual SLAM
+* Dynamic scene understanding
+* Global optimization with GTSAM
+* TensorRT deployment
+* GPU acceleration
+
+---
+
+## Features
+
+* FAST-LIVO based tightly-coupled LIO/VIO
+* Global pose graph optimization
+* Dynamic object removal
+* CenterPoint TensorRT inference
+* CUDA accelerated point cloud processing
+* Multi-threaded optimization
+* ROS-based deployment
+* Docker support
+
+---
+
+# System Architecture
+
+<p align="center">
+  <img src="docs/framework.png" width="90%">
+</p>
+
+---
+
+# Demo
+
+## Dynamic Object Removal
+
+<p align="center">
+  <img src="docs/dynamic_remove.gif" width="90%">
+</p>
+
+## Global Mapping
+
+<p align="center">
+  <img src="docs/global_mapping.gif" width="90%">
+</p>
+
+---
+
+# Dependencies
+
+## Basic Environment
+
+* Ubuntu 20.04
+* ROS Noetic
+* CUDA 11.x
+* TensorRT 8.x
+* C++17
+
+---
+
+## Required Libraries
+
+### ROS Packages
+
+```bash
+sudo apt install ros-noetic-pcl-ros
+sudo apt install ros-noetic-tf
+sudo apt install ros-noetic-cv-bridge
+sudo apt install ros-noetic-image-transport
+sudo apt install ros-noetic-eigen-conversions
+```
+
+### Third-party Libraries
+
+* Eigen3
+* PCL
+* OpenCV
+* Boost
+* Sophus (legacy version)
+* GeographicLib
+* GTSAM
+* OpenMP
+* CUDA
+* TensorRT
+* spconv
+
+---
+
+# Docker Environment
+
+The recommended way to run FAST-LIVOSAM is via Docker.
+
+## Run Docker
+
+```bash
+docker run -it --gpus all --network host \
+  -v /home/liuminzhe/FASTLIVOSAM:/home/liuminzhe/FASTLIVOSAM \
+  -v /media/liuminzhe/ExtremeSSD:/media/liuminzhe/ExtremeSSD:ro \
+  -e NVIDIA_VISIBLE_DEVICES=all \
+  -e NVIDIA_DRIVER_CAPABILITIES=graphics,compute,utility \
+  -e DISPLAY=$DISPLAY \
+  -e QT_X11_NO_MITSHM=1 \
+  -e QT_QPA_PLATFORM=xcb \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+  bevfusion_trt_11_3 /bin/bash
+```
+
+---
+
+# Build
+
+## Clone Repository
+
+```bash
+git clone https://github.com/TK72/FAST-LIVOSAM.git
+cd FAST-LIVOSAM
+```
+
+---
+
+## Build SLAM only
+
+```bash
+catkin_make
+```
+
+---
+
+## Build with CenterPoint
+
+```bash
+catkin_make --cmake-args -DBUILD_CENTERPOINT=ON
+```
+
+---
+
+# Run
+
+## Source Workspace
+
+```bash
+cd /home/liuminzhe/FASTLIVOSAM
+source devel/setup.bash
+```
+
+---
+
+## Launch
+
+```bash
+roslaunch fast_livo mapping_GREAT_WHU_centerpoint.launch
+```
+
+---
+
+# Dataset
+
+Current experiments are mainly conducted on:
+
+* GREAT-WHU
+* KITTI
+* KITTI-360
+* MulRan
+* NCLT
+
+---
+
+# TensorRT Notes
+
+Before enabling CenterPoint:
+
+* TensorRT must be installed
+* CUDA must be properly configured
+* spconv shared library must exist
+
+Example:
+
+```bash
+export SPCONV_ROOT=/path/to/libspconv
+export LD_LIBRARY_PATH=$SPCONV_ROOT/lib/x86_64:$LD_LIBRARY_PATH
+```
+
+---
+
+# Performance
+
+| Module               | Runtime       |
+| -------------------- | ------------- |
+| FAST-LIVO Mapping    | Real-time     |
+| CenterPoint TensorRT | Real-time GPU |
+| Dynamic Removal      | Enabled       |
+
+---
+
+# Citation
+
+If you find this project useful, please cite:
+
+```bibtex
+@article{fastlivosam,
+  title={FAST-LIVOSAM},
+  author={TK72},
+  journal={GitHub Repository},
+  year={2026}
+}
+```
+
+---
+
+# Acknowledgements
+
+This project is built upon:
+
+* FAST-LIVO2
+* FAST-LIO2
+* GTSAM
+* Sophus
+* CenterPoint
+* TensorRT
+* ROS
+
+---
+
+# License
+
+MIT License
