@@ -196,11 +196,9 @@ This project is built upon:
 * CenterPoint
 * TensorRT
 * ROS
-
----
-
 We would like to express our sincere gratitude to the authors for their valuable open-source contributions. Their excellent work and open-source spirit have provided important inspiration and support for the development of this project.
 ---
+
 
 # License
 
