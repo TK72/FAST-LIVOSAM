@@ -2,7 +2,7 @@
 
 <div align="center">
 
-### A Robust Global LiDAR-Visual-Inertial SLAM Framework with CenterPoint-based 3D Object Detection and Dynamic Points Removal
+### A Robust Global LiDAR-Visual-Inertial SLAM Framework with CenterPoint-based 3D Object Detection and Dynamic Objects Removal
 
 </div>
 
@@ -174,11 +174,11 @@ export LD_LIBRARY_PATH=$SPCONV_ROOT/lib/x86_64:$LD_LIBRARY_PATH
 If you find this project useful, please consider citing our paper:
 
 ```bibtex
-@article{fastlivosam,
+@misc{fastlivosam,
   title={Robust Urban SLAM Via Resilient GNSS-IMU-LiDAR-Camera-Loop Fusion},
   author={Minzhe Liu and Hongjuan Zhang and Zhibo Zhao and Chengzhi Hong and Haoyu Wang and Zilong Xiao and Bijun Li},
-  journal={Under review},
-  year={2026}
+  year={2026},
+  note={Under review},
 }
 ```
 
@@ -196,8 +196,8 @@ This project is built upon:
 * CenterPoint
 * TensorRT
 * ROS
+
 We would like to express our sincere gratitude to the authors for their valuable open-source contributions. Their excellent work and open-source spirit have provided important inspiration and support for the development of this project.
----
 
 
 # License
