@@ -98,26 +98,6 @@ sudo apt install ros-noetic-eigen-conversions
 * CUDA
 * TensorRT
 * spconv
-
----
-
-# Docker Environment
-
-The recommended way to run FAST-LIVOSAM is via Docker.
-
-## Run Docker
-
-```bash
-docker run -it --gpus all --network host \
-  -v /path/to/FASTLIVOSAM:/home/FASTLIVOSAM \
-  -v /path/to/dataset:/dataset:ro \
-  -e NVIDIA_VISIBLE_DEVICES=all \
-  -e NVIDIA_DRIVER_CAPABILITIES=graphics,compute,utility \
-  -e DISPLAY=$DISPLAY \
-  -e QT_X11_NO_MITSHM=1 \
-  -e QT_QPA_PLATFORM=xcb \
-  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-  bevfusion_trt_11_3 /bin/bash
 ```
 
 ---
