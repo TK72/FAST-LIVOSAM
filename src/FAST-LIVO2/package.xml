@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<package>
+  <name>fast_livo</name>
+  <version>0.0.0</version>
+
+  <description>
+    GLVIO mapping and factor-graph optimization based on FAST-LIVO2, with
+    optional CenterPoint-based 3D object detection support.
+  </description>
+
+  <maintainer email="dev@livoxtech.com">claydergc</maintainer>
+
+  <license>GPLv2</license>
+
+  <author email="zhangji@cmu.edu">Ji Zhang</author>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>eigen_conversions</build_depend>
+  <build_depend>vikit_common</build_depend>
+  <build_depend>vikit_ros</build_depend>
+  <build_depend>cv_bridge</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>jsk_recognition_msgs</build_depend>
+
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>pcl_ros</run_depend>
+  <run_depend>eigen_conversions</run_depend>
+  <run_depend>vikit_common</run_depend>
+  <run_depend>vikit_ros</run_depend>
+  <run_depend>cv_bridge</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>jsk_recognition_msgs</run_depend>
+
+  <test_depend>rostest</test_depend>
+  <test_depend>rosbag</test_depend>
+
+  <export>
+  </export>
+</package>

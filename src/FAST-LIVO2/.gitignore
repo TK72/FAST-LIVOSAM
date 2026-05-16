@@ -1,0 +1,12 @@
+build/*
+
+Log/**
+!Log/
+!Log/PCD/
+!Log/PCD/.gitkeep
+!Log/result/
+!Log/result/.gitkeep
+
+model/center_pointpillars/*.onnx
+model/center_pointpillars/*.plan
+3rdparty/libspconv/lib/**/*.so

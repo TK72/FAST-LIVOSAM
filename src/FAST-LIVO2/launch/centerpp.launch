@@ -1,0 +1,31 @@
+<launch>
+  <arg name="robot_namespace" default="fast_livo"/>
+  <arg name="pointcloud_topic" default="/points_raw"/>
+  <arg name="odom_topic" default="/aft_mapped_to_init"/>
+  <arg name="model_dir" default="$(find fast_livo)/model/center_pointpillars/"/>
+  <arg name="tensorrt_lib" default="$(optenv TENSORRT_LIB /opt/TensorRT/lib)"/>
+
+  <env name="LD_LIBRARY_PATH" value="$(arg tensorrt_lib):$(optenv LD_LIBRARY_PATH)"/>
+
+  <node ns="$(arg robot_namespace)"
+        pkg="fast_livo" type="centerpp_node" name="centerpp_node"
+        output="screen" clear_params="true">
+
+    <param name="Model_File_Dir" type="string" value="$(arg model_dir)"/>
+    <rosparam file="$(find fast_livo)/config/center_pp.yaml" command="load"/>
+
+    <param name="center_pp/filter_history/coast_time_sec" value="1.5"/>
+    <param name="center_pp/filter_history/coast_max_frames" value="15"/>
+
+    <remap from="~pointcloud" to="$(arg pointcloud_topic)"/>
+    <remap from="~odom" to="$(arg odom_topic)"/>
+
+    <remap from="~pointcloud_static" to="cpp/centerpp_node/pointcloud_static"/>
+    <remap from="~pointcloud_raw" to="cpp/centerpp_node/pointcloud_raw"/>
+    <remap from="~box" to="cpp/centerpp_node/box"/>
+    <remap from="~dynamic_box" to="cpp/centerpp_node/dynamic_box"/>
+    <remap from="~pointcloud_cluster" to="cpp/centerpp_node/pointcloud_cluster"/>
+    <remap from="~centerpoint_vel" to="cpp/centerpp_node/centerpoint_vel"/>
+    <remap from="~center_markers" to="cpp/centerpp_node/center_markers"/>
+  </node>
+</launch>
