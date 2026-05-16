@@ -178,11 +178,11 @@ export LD_LIBRARY_PATH=$SPCONV_ROOT/lib/x86_64:$LD_LIBRARY_PATH
 If you find this project useful, please consider citing our paper:
 
 ```bibtex
-@article{liu2026fastlivosam,
-  title={Robust Urban SLAM Via Resilient GNSS--IMU--LiDAR--Camera--Loop Fusion},
+@article{fastlivosam,
+  title={Robust Urban SLAM Via Resilient GNSS-IMU-LiDAR-Camera-Loop Fusion},
   author={Minzhe Liu and Hongjuan Zhang and Zhibo Zhao and Chengzhi Hong and Haoyu Wang and Zilong Xiao and Bijun Li},
   journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-  year={2026}
+  year={Under review}
 }
 ```
 
