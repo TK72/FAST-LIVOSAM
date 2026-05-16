@@ -2,14 +2,15 @@
 
 <div align="center">
 
-**FAST-LIVOSAM: A Robust Global LiDAR-Visual-Inertial SLAM Framework
-with Dynamic Object Removal and TensorRT-based 3D Object Detection**
+# FAST-LIVOSAM
+
+### A Robust Global LiDAR-Visual-Inertial SLAM Framework with Dynamic Object Removal and TensorRT-based 3D Object Detection
 
 </div>
 
 ---
 
-## Overview
+# Overview
 
 FAST-LIVOSAM is a robust global LiDAR-Visual-Inertial SLAM framework built upon FAST-LIVO2 with:
 
@@ -29,12 +30,12 @@ The framework supports:
 
 ---
 
-## Features
+# Features
 
 * FAST-LIVO based tightly-coupled LIO/VIO
 * Global pose graph optimization
 * Dynamic object removal
-* CenterPoint TensorRT inference
+* TensorRT CenterPoint inference
 * CUDA accelerated point cloud processing
 * Multi-threaded optimization
 * ROS-based deployment
@@ -52,17 +53,11 @@ The framework supports:
 
 # Demo
 
-## Dynamic Object Removal
+Demo videos can be found in the `assets/` directory of this repository, including:
 
-<p align="center">
-  <img src="docs/dynamic_remove.gif" width="90%">
-</p>
-
-## Global Mapping
-
-<p align="center">
-  <img src="docs/global_mapping.gif" width="90%">
-</p>
+* Dynamic object removal
+* Global mapping
+* TensorRT-based CenterPoint 3D detection
 
 ---
 
@@ -78,9 +73,7 @@ The framework supports:
 
 ---
 
-## Required Libraries
-
-### ROS Packages
+## Required ROS Packages
 
 ```bash
 sudo apt install ros-noetic-pcl-ros
@@ -90,7 +83,9 @@ sudo apt install ros-noetic-image-transport
 sudo apt install ros-noetic-eigen-conversions
 ```
 
-### Third-party Libraries
+---
+
+## Third-party Libraries
 
 * Eigen3
 * PCL
@@ -114,8 +109,8 @@ The recommended way to run FAST-LIVOSAM is via Docker.
 
 ```bash
 docker run -it --gpus all --network host \
-  -v /home/liuminzhe/FASTLIVOSAM:/home/liuminzhe/FASTLIVOSAM \
-  -v /media/liuminzhe/ExtremeSSD:/media/liuminzhe/ExtremeSSD:ro \
+  -v /path/to/FASTLIVOSAM:/home/FASTLIVOSAM \
+  -v /path/to/dataset:/dataset:ro \
   -e NVIDIA_VISIBLE_DEVICES=all \
   -e NVIDIA_DRIVER_CAPABILITIES=graphics,compute,utility \
   -e DISPLAY=$DISPLAY \
@@ -138,7 +133,7 @@ cd FAST-LIVOSAM
 
 ---
 
-## Build SLAM only
+## Build SLAM Only
 
 ```bash
 catkin_make
@@ -159,7 +154,6 @@ catkin_make --cmake-args -DBUILD_CENTERPOINT=ON
 ## Source Workspace
 
 ```bash
-cd /home/liuminzhe/FASTLIVOSAM
 source devel/setup.bash
 ```
 
@@ -202,25 +196,15 @@ export LD_LIBRARY_PATH=$SPCONV_ROOT/lib/x86_64:$LD_LIBRARY_PATH
 
 ---
 
-# Performance
-
-| Module               | Runtime       |
-| -------------------- | ------------- |
-| FAST-LIVO Mapping    | Real-time     |
-| CenterPoint TensorRT | Real-time GPU |
-| Dynamic Removal      | Enabled       |
-
----
-
 # Citation
 
-If you find this project useful, please cite:
+If you find this project useful, please consider citing our paper:
 
 ```bibtex
-@article{fastlivosam,
-  title={FAST-LIVOSAM},
-  author={TK72},
-  journal={GitHub Repository},
+@article{liu2026fastlivosam,
+  title={Robust Urban SLAM Via Resilient GNSS--IMU--LiDAR--Camera--Loop Fusion},
+  author={Minzhe Liu and Hongjuan Zhang and Zhibo Zhao and Chengzhi Hong and Haoyu Wang and Zilong Xiao and Bijun Li},
+  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
   year={2026}
 }
 ```
@@ -233,6 +217,7 @@ This project is built upon:
 
 * FAST-LIVO2
 * FAST-LIO2
+* FAST-LIOSAM
 * GTSAM
 * Sophus
 * CenterPoint
