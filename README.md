@@ -2,7 +2,7 @@
 
 <div align="center">
 
-### A Robust Global LiDAR-Visual-Inertial SLAM Framework with Dynamic Object Removal and CenterPoint-based 3D Object Detection
+### A Robust Global LiDAR-Visual-Inertial SLAM Framework with CenterPoint-based 3D Object Detection and Dynamic Points Removal
 
 </div>
 
@@ -53,9 +53,8 @@ The framework supports:
 
 Demo videos can be found in the `assets/` directory of this repository, including:
 
-* Dynamic object removal
+* CenterPoint 3D detection and Dynamic object removal
 * Global mapping
-* TensorRT-based CenterPoint 3D detection
 
 ---
 
@@ -150,9 +149,6 @@ Current experiments are mainly conducted on:
 
 * GREAT-WHU
 * KITTI
-* KITTI-360
-* MulRan
-* NCLT
 
 ---
 
@@ -181,8 +177,8 @@ If you find this project useful, please consider citing our paper:
 @article{fastlivosam,
   title={Robust Urban SLAM Via Resilient GNSS-IMU-LiDAR-Camera-Loop Fusion},
   author={Minzhe Liu and Hongjuan Zhang and Zhibo Zhao and Chengzhi Hong and Haoyu Wang and Zilong Xiao and Bijun Li},
-  journal={ISPRS Journal of Photogrammetry and Remote Sensing},
-  year={Under review}
+  journal={Under review},
+  year={2026}
 }
 ```
 
