@@ -191,6 +191,7 @@ This project is built upon:
 * FAST-LIVO2
 * FAST-LIO2
 * FAST-LIOSAM
+* TRLO
 * GTSAM
 * Sophus
 * CenterPoint
